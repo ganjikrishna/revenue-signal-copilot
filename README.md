@@ -75,11 +75,11 @@ The demo score is deliberately simple and auditable:
 | Signal | Points |
 |---|---:|
 | Strong industry fit | +20 |
-| Employee count â‰¥ 200 | +15 |
+| Employee count >= 200 | +15 |
 | Pricing-page visit | +20 |
 | Demo requested | +25 |
 | Email engagement (capped) | +0–10 |
-| Recent activity â‰¤ 7 days | +10 |
+| Recent activity <= 7 days | +10 |
 
 This is demonstration logic, not a production prediction model. A real deployment would validate weights against outcomes, monitor bias and drift, enforce CRM permissions, and log user-approved actions.
 
@@ -114,4 +114,3 @@ python -m unittest discover -s tests -v
 ## License
 
 MIT — see [LICENSE](LICENSE).
-
