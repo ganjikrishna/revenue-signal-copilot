@@ -28,6 +28,7 @@ class Handler(BaseHTTPRequestHandler):
             "/app.js": ("web/app.js", "application/javascript; charset=utf-8"),
             "/styles.css": ("web/styles.css", "text/css; charset=utf-8"),
             "/demo/lead.json": ("demo/lead.json", "application/json; charset=utf-8"),
+            "/demo/leads.json": ("demo/leads.json", "application/json; charset=utf-8"),
         }
         if self.path not in routes:
             self._send(404, b'{"error":"not found"}', "application/json")
@@ -57,4 +58,3 @@ if __name__ == "__main__":
     port = int(os.getenv("PORT", "8000"))
     print(f"Revenue Signal Copilot: http://localhost:{port}")
     ThreadingHTTPServer(("127.0.0.1", port), Handler).serve_forever()
-
