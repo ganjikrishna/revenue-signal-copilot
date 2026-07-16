@@ -127,4 +127,19 @@ def enhance_with_openai(lead: Lead, baseline: dict[str, Any]) -> dict[str, Any]:
 
 def analyze(data: dict[str, Any]) -> dict[str, Any]:
     lead = parse_lead(data)
-    return enhance_with_openai(lead, deterministic_result(lead))
+    result = enhance_with_openai(lead, deterministic_result(lead))
+    result.update({
+        "company": lead.company,
+        "contact_name": lead.contact_name,
+        "industry": lead.industry,
+        "employee_count": lead.employee_count,
+        "email_opens": lead.email_opens,
+        "visited_pricing": lead.visited_pricing,
+        "requested_demo": lead.requested_demo,
+        "days_since_activity": lead.days_since_activity,
+        "pain_point": lead.pain_point,
+        "source": lead.source,
+        "requires_human_review": True,
+        "recommended_timing": "Within one business day" if result["tier"] == "High" else "Within three business days" if result["tier"] == "Medium" else "Monitor for new intent",
+    })
+    return result
