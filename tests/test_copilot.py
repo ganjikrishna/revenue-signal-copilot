@@ -21,6 +21,8 @@ class CopilotTests(unittest.TestCase):
         result = analyze(self.data)
         self.assertEqual(result["mode"], "demo")
         self.assertIn("Peachtree Fitness Group", result["brief"])
+        self.assertEqual(result["company"], "Peachtree Fitness Group")
+        self.assertTrue(result["requires_human_review"])
 
     def test_invalid_numbers_are_rejected(self):
         self.data["employee_count"] = -1
