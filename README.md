@@ -18,6 +18,9 @@ Revenue teams often have abundant CRM data but limited time to interpret it. Thi
 - Drafts outreach in offline demo mode
 - Optionally enhances the brief and draft with the OpenAI Responses API
 - Never sends email or writes to a CRM automatically
+- Presents a sortable synthetic CRM priority queue with pipeline metrics
+- Supports lead-signal editing, score recalculation, and explainable signal visualization
+- Provides editable outreach, mock CRM handoff, and a session-only human review log
 
 ## Architecture
 
